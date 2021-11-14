@@ -1,7 +1,7 @@
 from aiogram.dispatcher.filters import Command, Text
-from aiogram.types import Message, ReplyKeyboardRemove
-from keyboards.default.raspKeyboard import raspis
+from aiogram.types import Message, ReplyKeyboardRemove, CallbackQuery
 from keyboards.default.startKeyboard import menuStart
+from keyboards.inline.raspisaniyaKeyboard import raspMenu
 
 from loader import dp
 
@@ -16,50 +16,66 @@ async def show_admin(message: Message):
 
 @dp.message_handler(text_contains="Raspisaniya")
 async def rasp(message: Message):
-    await message.answer("🌅 Kunni tanlang !", reply_markup=raspis)
+    await message.answer("🌅 Kunni tanlang !", reply_markup=raspMenu)
 
 
-@dp.message_handler(text_contains='Dushanba')
-async def dush(message: Message):
-    await message.reply("Granny", reply_markup=ReplyKeyboardRemove())
+@dp.callback_query_handler(text_contains='dushanba')
+async def dush(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("Granny")
+    await call.answer(cache_time=60)
 
-@dp.message_handler(text_contains='Seshanba')
-async def sesh(message: Message):
-    await message.reply("Granny ", reply_markup=ReplyKeyboardRemove())
+@dp.callback_query_handler(text_contains='seshanba')
+async def sesh(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("Granny ")
+    await call.answer(cache_time=60)
 
-@dp.message_handler(text_contains='Chorshanba')
-async def chor(message: Message):
-    await message.reply("1. Rus tili\n"
+@dp.callback_query_handler(text_contains='chorshanba')
+async def chor(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("🌁 Chorshanba\n"
+                        "\n1. Rus tili\n"
                         "2. Huquq\n"
                         "3. Algebra\n"
-                        "4. Ingliz tili", reply_markup=ReplyKeyboardRemove())
+                        "4. Ingliz tili")
+    await call.answer(cache_time=60)
 
-@dp.message_handler(text_contains='Payshanba')
-async def pay(message: Message):
-    await message.reply("1. Ona tili\n"
+@dp.callback_query_handler(text_contains='payshanba')
+async def pay(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("🌃 Payshanba\n"
+                        "\n1. Ona tili\n"
                         "2. Adabiyot\n"
                         "3. Biologiya\n"
                         "4. Informatika\n"
                         "5. Fizika",
-                        reply_markup=ReplyKeyboardRemove())
+                        )
+    await call.answer(cache_time=60)
 
-@dp.message_handler(text_contains='Juma')
-async def juma(message: Message):
-    await message.reply("1. Sinf soati\n"
+@dp.callback_query_handler(text_contains='juma')
+async def juma(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("🕌 Juma\n"
+                        "\n1. Sinf soati\n"
                         "2. Algebra\n"
                         "3. Fizika\n"
                         "4. Rus tili\n"
                         "5. Jismoniy tarbiya\n"
-                        "6. Geometriya", reply_markup=ReplyKeyboardRemove())
+                        "6. Geometriya")
+    await call.answer(cache_time=60)
 
-@dp.message_handler(text_contains='Shanba')
-async def shanba(message: Message):
-    await message.reply("1. Adabiyot\n"
+@dp.callback_query_handler(text_contains='shanba')
+async def shanba(call: CallbackQuery):
+    await call.message.delete()
+    await call.message.answer("🌄 Shanba \n"
+                        "\n1. Adabiyot\n"
                         "2. Tarbiya\n"
                         "3. Geografiya\n"
                         "4. Jahon tarixi\n"
                         "5. Biologiya\n"
-                        "6. Ingliz tili",reply_markup=ReplyKeyboardRemove())
+                        "6. Ingliz tili")
+    await call.answer(cache_time=60)
 
 @dp.message_handler(text_contains='Boshiga')
 async def send_link(message: Message):
