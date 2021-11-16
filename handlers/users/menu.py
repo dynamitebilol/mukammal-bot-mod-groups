@@ -22,7 +22,12 @@ async def rasp(message: Message):
 @dp.callback_query_handler(text_contains='dushanba')
 async def dush(call: CallbackQuery):
     await call.message.delete()
-    await call.message.answer("Granny")
+    await call.message.answer("Dushanba\n"
+                              "\n1. Kimyo\n"
+                              "2. O'zb.Tarix\n"
+                              "3. Jismoniy Tarbiya\n"
+                              "4. CHQBT\n"
+                              "5. Ona tili\n")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='seshanba')
