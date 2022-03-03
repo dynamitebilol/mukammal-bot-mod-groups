@@ -24,10 +24,10 @@ async def dush(call: CallbackQuery):
     await call.message.delete()
     await call.message.answer("⛷ Dushanba\n"
                               "\n1. Kimyo\n"
-                              "2. O'zb.Tarix\n"
-                              "3. Jismoniy Tarbiya\n"
-                              "4. CHQBT\n"
-                              "5. Ona tili\n")
+                              "2. Jahon.Tarix\n"
+                              "3. CHQBT\n"
+                              "4. Jismoniy Tarbiya\n"
+                              "5. Fizika\n")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='seshanba')
@@ -37,8 +37,9 @@ async def sesh(call: CallbackQuery):
                             "\n1. Algebra\n"
                               "2. Geometriya\n"
                               "3. Ingliz tili\n"
-                              "4. Informatika\n"
-                              "5. Kimyo")
+                              "4. Kimyo\n"
+                              "5. Informatika\n"
+                              "6. Fizika")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='chorshanba')
@@ -46,9 +47,11 @@ async def chor(call: CallbackQuery):
     await call.message.delete()
     await call.message.answer("🌁 Chorshanba\n"
                         "\n1. Rus tili\n"
-                        "2. Huquq\n"
+                        "2. Geometriya\n"
                         "3. Algebra\n"
-                        "4. Ingliz tili")
+                        "4. Ona tili\n"
+                        "5. Huquq\n"    
+                        "6. Ingliz tili")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='payshanba')
@@ -57,10 +60,7 @@ async def pay(call: CallbackQuery):
     await call.message.answer("🌃 Payshanba\n"
                         "\n1. Ona tili\n"
                         "2. Adabiyot\n"
-                        "3. Biologiya\n"
-                        "4. Informatika\n"
-                        "5. Fizika",
-                        )
+                        "3. Biologiya")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='juma')
@@ -69,10 +69,9 @@ async def juma(call: CallbackQuery):
     await call.message.answer("🕌 Juma\n"
                         "\n1. Sinf soati\n"
                         "2. Algebra\n"
-                        "3. Fizika\n"
+                        "3. Biologiya\n"
                         "4. Rus tili\n"
-                        "5. Jismoniy tarbiya\n"
-                        "6. Geometriya")
+                        "5. Jismoniy tarbiya")
     await call.answer(cache_time=60)
 
 @dp.callback_query_handler(text_contains='shanba')
@@ -81,10 +80,10 @@ async def shanba(call: CallbackQuery):
     await call.message.answer("🌄 Shanba \n"
                         "\n1. Adabiyot\n"
                         "2. Tarbiya\n"
-                        "3. Geografiya\n"
-                        "4. Jahon tarixi\n"
-                        "5. Biologiya\n"
-                        "6. Ingliz tili")
+                        "3. Ingliz tili\n"
+                        "4. O'zb. tarixi\n"
+                        "5. Geografiya\n"
+                        "6. Informatika")
     await call.answer(cache_time=60)
 
 @dp.message_handler(text_contains='Boshiga')
